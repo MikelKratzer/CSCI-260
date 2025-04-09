@@ -1,0 +1,52 @@
+TEST 1:
+Friday February 21st at 10:00 am
+75% of points from Multiple Choice (like questions in Kahoot)
+    25 multiple choice/fill in the blank questions
+25% will be from reading/writing code/SQL
+    2-3 questions
+        Python
+        Spreadsheet
+        SQL
+General Topics:
+    CRUD:
+        Create -> Insert query
+        Retrieve -> Select
+        Update -> Update
+        Delete -> Delete
+    Python Data Analysis
+        Reading csv file
+            Revisit code from project
+            csvreader class in Python to make this easy
+    Spreadsheet usage
+        Simple data Analysis
+            Maybe a join
+                VLOOKUP
+        Can do calculations
+    PostgreSQL
+        Setup
+            createuser
+                -P set password
+            createdb
+                -O set owner
+            sudo -u postgres createuser csci260 -P
+            (sudo apt) brew install postgres
+                adding postgres server to your local machine
+        Creating database structure
+            create table . . . 
+            NOT C in CRUD
+            drop table . . .
+            alter table . . . 
+        Create  
+            Simple inserts
+                do some examples
+        Retrieve -> Select
+            Has many features but we just do simple ones
+              NO:  --order by, --limit, --offset, --like, --selects of selects, --join
+              YES:  ++where, ++columns (projection), 
+              select first, last from students where id = 1;
+        Update -> Update
+            ++where, ++set
+            update students set first = 'Mikel' where id = 1;
+        Delete -> Delete
+            ++where
+            delete from students where first = 'Mikel' and id = 1;

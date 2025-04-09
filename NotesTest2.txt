@@ -1,0 +1,43 @@
+CSCI 260 Notes for Test 2
+April 9, 10:00 am
+40% Multiple Choice
+    20 questions
+60% Reading/Writing code
+    4-5 questions
+        "Fill in the blank" 
+        e.g. Write an entire SQL statement, etc.
+        Focus is SQL, Python is useful
+Intent is to test on all content since last test
+    GIVEN: Select, Insert, Delete, Update (simple form)
+        Ability to create tables and look at structure
+Using Python, build a useful USER INTERFACE for a database
+    CLI (Command Line Interface)
+        observe that we can separate database code from user interface code
+            Model-View-Controller
+        implement full CRUD operations
+    Tk interface
+        GUI (Graphical User Interface)
+            event-based programming: hand over a function to be called when an event occurs (button clicks/action <Button-1>)
+        Model-View-Controller
+            single DB interface design could serve both a CLI and a GUI (--- web interface) to the database
+    Matplotlib
+        scatter plots mostly (easy)
+
+
+WHAT DOES A QUESTION LOOK LIKE:
+    As given in class, the add course button is created as below
+    createButton = tk.Button(text = "Add Course", command = createui.createClick)
+    And the code in createui.createClick is 
+    def createClick(self):
+        self.dialog = tk.Toplevel(self.parent)
+        label = tk.Label(self.dialog, text= "_______________") WHAT TEXT GOES HERE?
+        self.entry = tk.Entry(self.dialog, width = 10)
+
+        add = tk.Button(self.dialog, text = "Add Course", command = self.click)
+        cancel = tk.Button(self.dialog, text = "Cancel", command = self.dialog.destroy)
+        
+        label.pack()
+        self.entry.pack()
+        add.pack()
+        cancel.pack()
+        self.dialog.lift(self.parent)
