@@ -1,0 +1,29 @@
+Approximate Nearest Neighbor Search (ANNS)
+DISTANCE BETWEEN TWO POINTS:
+L2 Norm: "crow flies"
+    d = sqrt((x_0 - x_1)^2 + (y_0 - y_1)^2 + (z_0 - z_1)^2 + (w_0 - w_1)^2 + . . .)
+    d = sqrt(sum_0^(n-1) (x_i - y_i)^2)
+    
+L1 Norm: "taxi cab"
+    d = abs(x_0 - x_1) + abs(y_0 - y_1) + . . .
+    d = sum_0^(n-1) abs(x_i - y_i)
+    Most simple to compute
+
+Cosine Distance:
+    d = 1 - (sum_0^(n-1) x_i * y_i) / (sqrt(sum_0^(n-1) x_i^2) x sum_0^(n-1) y_i^2)
+
+
+POSTGRES: (pgvector)
+<-> - L2 Distance
+<#> - Inner Product
+<=> - Cosine Distance
+<+> - L1 Distance
+<~> - Hamming ditance (bit flipping)
+
+insert into items (embedding) values ('[1,2,3]', '[4,5,1]')
+select * from items order by embedding <-> '[3,1,2]' limit 5
+
+HNSW, IVFFlat
+
+Normalize: all number ranges between 0.0 and 1.0
+   0 <= (x - min) / (max - min) <= 1
