@@ -1,0 +1,61 @@
+import tkinter as tk  # Current version 
+from tkinter import ttk # Special version
+from kNearestNeighbors import *
+
+def handle_click(event):
+    global entry1,entry2,entry3,combo1,combo2,combo3,Kentry,Pentry,Sentry
+    KNN(entry1.get(),entry2.get(),entry3.get(), \
+        combo1.get(),combo2.get(),combo3.get(), \
+        Kentry.get(),Pentry.get(),Sentry.get() )
+    #print(entry.get())
+
+window = tk.Tk()
+
+fields=["longitude", 
+  "latitude",
+  "housing_median_age",
+  "total_rooms",
+  "total_bedrooms",
+  "population",
+  "households",
+  "median_income",
+  "median_house_value"]
+
+def makeCombo(frame,label,fields):
+    f=tk.Frame(frame)
+    tk.Label(f,text=label).pack()
+    combo = ttk.Combobox(f,state="readonly",values=fields)
+    combo.pack() # this is packing Combobox into the f1 frame
+    tk.Label(f,text="Target Value").pack()
+    entry = tk.Scale(f,from_=0.0,to=1.0,resolution=.05)
+    entry.pack()
+    f.pack(side=tk.LEFT)
+    return (combo,entry)
+
+def makeOneEntry(frame,label):
+    f=tk.Frame(frame)
+    tk.Label(f,text=label).pack(side=tk.LEFT)
+    entry = tk.Entry(f,width=10)
+    entry.pack(side=tk.LEFT)
+    f.pack()
+    return entry 
+
+f=tk.Frame(window)
+(combo1,entry1)=makeCombo(f,"Field 1",fields)
+(combo2,entry2)=makeCombo(f,"Field 2",fields)
+(combo3,entry3)=makeCombo(f,"Field 3",fields)
+f.pack()
+
+Kentry=makeOneEntry(window,"K size")
+Pentry=makeOneEntry(window,"Sample %")
+Sentry=makeOneEntry(window,"Seed Number")
+
+fB=tk.Frame(window)
+button = tk.Button(fB,text="Chart Now")
+button.bind("<Button-1>", handle_click)
+button.pack(side=tk.LEFT)
+cancel = tk.Button(fB,text="Cancel")
+cancel.pack(side=tk.LEFT)
+fB.pack()
+
+window.mainloop()
