@@ -1,0 +1,54 @@
+Final will be 10:00am Monday May 12th
+
+40% from Multiple Choice - 35-40 questions
+
+60% from Code Reading / Writing - 5-8 questions
+    - Give code and ask what does this code do?
+    e.g. plt.scatter(x,y,labels) -- +{creates} scatter plot ++{with data from} x and y
+    - May give code from class with redacted sections, write in replacement
+        minor syntax issues will not be graded
+        if interpreter would catch it, not that big of issue
+        note repetition when documenting
+
+TOPICS:
+    Processing data in general using Python 
+        +csvreader (gaugeReader.py)
+        for unnormalized data
+    Spreadsheets
+        usually first Normal from (1NF)
+        some analysis can be done 
+        not good when joining data together
+    Database
+        Does joins easily at cost of creating database
+        psql install and start a psql server
+            create database
+            create appropriate user account
+        IN PYTHON: install driver for database and then "connect" to database
+            psycopg2 is the driver for postgres
+            provide user account password and machine (localhost)
+            need to get a cursor for the database  
+                do queries: C reate -> Insert; R etreive -> Select; U pdate -> Update; D elete -> Delete
+                    read or write changes to records themselves
+                meta data queries: create table, index, alter table -- change data structure 
+        Should be able to interpret select with maybe one join, including
+            join
+                select * from table1 join table2 on table1.field = table2.field
+            domain aggregation (avg, count, etc.)
+            formula (sqrt (distance in housing), etc.)
+            where clauses (where id = 2, etc.)
+            limit
+        Insert syntax
+            values keyword
+            insert into table1 (id, first, last) values (1, "Mikel", "Kratzer"), (...);
+        Update
+            diffeent syntax compared to insert
+            update table1 set id = 2 where last = "Kratzer";
+        Rarely delete data
+            caution: delete * from table; <-- never do (cannot be recovered without backup)
+    Matplotlib -- install library
+        Making plots (3D)
+        Multiple charts on a single plot
+        Put matplotlib plot on a tk interface
+    TK Graphical User Interface (GUI) -- not a console
+        add labels, buttons, combobox, etc.
+        on some event, do some work (make a 3D K-NN plot, maintain single table, etc.)
