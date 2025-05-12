@@ -35,7 +35,7 @@ insert into extremes select
 create or replace function n(value float, min float, max float) returns float
   LANGUAGE SQL
   IMMUTABLE
-  return (value - min) / (max - min);
+  return (value - min) / (max - min); -- normalize data
 
 -- Add the normalized values to the normhousing table
 insert into normhousing select 

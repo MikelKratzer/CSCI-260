@@ -1,3 +1,10 @@
+# ANALYZE DATA WITH PYTHON:
+# CSV.READER -> turns a file into a csv,
+# entries separated by tab (delimiter) -> become separated by a comma
+# quotechar: if entry is written |like this|, it will not be separated into separate entries
+
+
+
 import math
 import csv
 
